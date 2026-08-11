@@ -83,16 +83,16 @@ export default function Home() {
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '30px' }}>
             <div style={{ backgroundColor: '#141414', border: '1px solid #333', padding: '30px' }}>
-              <div style={{ display: 'flex', itemsCenter: 'center', gap: '10px', marginBottom: '20px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '20px' }}>
                 <Clock color="#FFD700" size={28} />
                 <h3 style={{ fontSize: '24px', margin: 0, textTransform: 'uppercase' }}>Gents Batch</h3>
               </div>
               <div style={{ fontFamily: 'sans-serif', fontSize: '15px', color: '#DDD' }}>
-                <div style={{ display: 'flex', justifyBetween: 'space-between', borderBottom: '1px solid #222', paddingBottom: '10px', marginBottom: '10px' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid #222', paddingBottom: '10px', marginBottom: '10px' }}>
                   <span>Morning Batch:</span>
                   <strong style={{ color: '#FFD700' }}>05:30 AM – 09:00 AM</strong>
                 </div>
-                <div style={{ display: 'flex', justifyBetween: 'space-between' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                   <span>Evening Batch:</span>
                   <strong style={{ color: '#FFD700' }}>05:00 PM – 09:00 PM</strong>
                 </div>
@@ -100,16 +100,16 @@ export default function Home() {
             </div>
 
             <div style={{ backgroundColor: '#141414', border: '1px solid #333', padding: '30px' }}>
-              <div style={{ display: 'flex', itemsCenter: 'center', gap: '10px', marginBottom: '20px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '20px' }}>
                 <Clock color="#FFD700" size={28} />
                 <h3 style={{ fontSize: '24px', margin: 0, textTransform: 'uppercase' }}>Ladies Batch</h3>
               </div>
               <div style={{ fontFamily: 'sans-serif', fontSize: '15px', color: '#DDD' }}>
-                <div style={{ display: 'flex', justifyBetween: 'space-between', borderBottom: '1px solid #222', paddingBottom: '10px', marginBottom: '10px' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid #222', paddingBottom: '10px', marginBottom: '10px' }}>
                   <span>Morning Batch:</span>
                   <strong style={{ color: '#FFD700' }}>06:30 AM – 11:00 AM</strong>
                 </div>
-                <div style={{ display: 'flex', justifyBetween: 'space-between' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                   <span>Evening Batch:</span>
                   <strong style={{ color: '#FFD700' }}>03:00 PM – 05:00 PM</strong>
                 </div>
@@ -171,7 +171,7 @@ export default function Home() {
       </section>
 
       {/* FOOTER */}
-      <footer style={{ backgroundColor: '#000', borderTop: '2px solid #FFD700', padding: '40px 20px', textFont: 'sans-serif' }}>
+      <footer style={{ backgroundColor: '#000', borderTop: '2px solid #FFD700', padding: '40px 20px' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'center', gap: '20px' }}>
           <div>
             <h3 style={{ fontSize: '28px', fontStyle: 'italic', margin: '0 0 5px 0' }}>POWERHOUSE <span style={{ color: '#FFD700' }}>GYM</span></h3>
