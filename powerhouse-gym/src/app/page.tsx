@@ -1,15 +1,16 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Phone, MapPin, Flame, Clock, Trophy, Dumbbell } from 'lucide-react';
+import { Phone, MapPin, Flame, Clock, Trophy, Dumbbell, Play, Image as ImageIcon, Code, ExternalLink } from 'lucide-react';
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
+  const [mediaTab, setMediaTab] = useState<'photos' | 'videos'>('photos');
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 1800);
+    }, 800);
     return () => clearTimeout(timer);
   }, []);
 
@@ -20,10 +21,24 @@ export default function Home() {
     { name: 'Personal Training', price: '₹1999', period: '/month', tag: '1-on-1 Guidance' },
   ];
 
+  const photos = [
+    '/images/gym1.jpeg',
+    '/images/gym2.jpeg',
+    '/images/gym3.jpeg',
+    '/images/gym4.jpeg',
+    '/images/gym5.jpeg',
+    '/images/gym6.jpeg',
+  ];
+
+  const videos = [
+    '/videos/video1.mp4',
+    '/videos/video2.mp4',
+  ];
+
   return (
-    <div style={{ backgroundColor: '#000000', color: '#ffffff', fontFamily: 'Impact, sans-serif', minHeight: '100vh', width: '100%', overflowX: 'hidden' }}>
+    <div style={{ backgroundColor: '#000000', color: '#ffffff', fontFamily: 'Impact, sans-serif', minHeight: '100vh', width: '100%', overflowX: 'hidden', paddingBottom: '70px' }}>
       
-      {/* KEYFRAME ANIMATIONS & STYLES */}
+      {/* STYLES & MOBILE OPTIMIZATIONS */}
       <style jsx global>{`
         * {
           box-sizing: border-box;
@@ -34,13 +49,13 @@ export default function Home() {
         }
         @keyframes pulseGlow {
           0%, 100% { box-shadow: 0 0 15px rgba(255, 215, 0, 0.2); }
-          50% { box-shadow: 0 0 35px rgba(255, 215, 0, 0.6); }
+          50% { box-shadow: 0 0 30px rgba(255, 215, 0, 0.6); }
         }
         .animate-progress {
-          animation: loaderProgress 1.8s ease-in-out forwards;
+          animation: loaderProgress 0.8s ease-in-out forwards;
         }
         .glow-box {
-          animation: pulseGlow 3s infinite ease-in-out;
+          animation: pulseGlow 2.5s infinite ease-in-out;
         }
         @media (max-width: 768px) {
           .nav-container { padding: 12px 16px !important; }
@@ -53,7 +68,7 @@ export default function Home() {
         }
       `}</style>
 
-      {/* GYM LOADER SCREEN */}
+      {/* FAST GYM LOADER SCREEN (0.8s) */}
       {loading && (
         <div style={{ position: 'fixed', inset: 0, zIndex: 100, backgroundColor: '#000000', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', padding: '20px' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px' }}>
@@ -65,17 +80,13 @@ export default function Home() {
             </h1>
           </div>
 
-          <p style={{ fontFamily: 'sans-serif', color: '#FFD700', fontSize: '12px', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '24px', fontWeight: 'bold', textAlign: 'center' }}>
+          <p style={{ fontFamily: 'sans-serif', color: '#FFD700', fontSize: '12px', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '20px', fontWeight: 'bold', textAlign: 'center' }}>
             📍 Nidasoshi Gate | Tal. Hukkeri | Dist. Belagavi
           </p>
 
-          <div style={{ width: '260px', height: '6px', backgroundColor: '#1A1A1A', border: '1px solid #333', overflow: 'hidden' }}>
+          <div style={{ width: '220px', height: '6px', backgroundColor: '#1A1A1A', border: '1px solid #333', overflow: 'hidden' }}>
             <div className="animate-progress" style={{ height: '100%', backgroundColor: '#FFD700', boxShadow: '0 0 15px #FFD700' }} />
           </div>
-
-          <span style={{ fontFamily: 'sans-serif', color: '#666', fontSize: '11px', textTransform: 'uppercase', letterSpacing: '1.5px', marginTop: '12px' }}>
-            FORGING UNYIELDING STRENGTH...
-          </span>
         </div>
       )}
 
@@ -249,41 +260,86 @@ export default function Home() {
         </div>
       </section>
 
-      {/* GALLERY */}
+      {/* MEDIA CENTER */}
       <section style={{ backgroundColor: '#0D0D0D', borderTop: '1px solid #222', padding: '50px 20px' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: '32px' }}>
             <h2 className="section-title" style={{ fontSize: '42px', fontStyle: 'italic', margin: 0 }}>
-              THE <span style={{ color: '#FFD700' }}>IRON ARENA</span>
+              POWERHOUSE <span style={{ color: '#FFD700' }}>MEDIA ARENA</span>
             </h2>
+            <p style={{ fontFamily: 'sans-serif', color: '#888', textTransform: 'uppercase', letterSpacing: '1px', marginTop: '6px', fontSize: '12px' }}>Explore Facility Photos & Workout Action Videos</p>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '16px' }}>
-            <div style={{ border: '1px solid #333', overflow: 'hidden', height: '220px' }}>
-              <img src="/images/gym1.jpeg" alt="Powerhouse Setup 1" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-            </div>
-            <div style={{ border: '1px solid #333', overflow: 'hidden', height: '220px' }}>
-              <img src="/images/gym2.jpeg" alt="Powerhouse Setup 2" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-            </div>
-            <div style={{ border: '1px solid #333', overflow: 'hidden', height: '220px' }}>
-              <img src="/images/gym3.jpeg" alt="Powerhouse Setup 3" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-            </div>
-            <div style={{ border: '1px solid #333', overflow: 'hidden', height: '220px' }}>
-              <img src="/images/gym4.jpg" alt="Powerhouse Setup 3" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-            </div>
-            <div style={{ border: '1px solid #333', overflow: 'hidden', height: '220px' }}>
-              <img src="/images/gym5.jpg" alt="Powerhouse Setup 3" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-            </div>
-            <div style={{ border: '1px solid #333', overflow: 'hidden', height: '220px' }}>
-              <img src="/images/gym6.jpg" alt="Powerhouse Setup 3" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-            </div>
+          <div style={{ display: 'flex', justifyContent: 'center', gap: '15px', marginBottom: '32px' }}>
+            <button
+              onClick={() => setMediaTab('photos')}
+              style={{
+                backgroundColor: mediaTab === 'photos' ? '#FFD700' : '#141414',
+                color: mediaTab === 'photos' ? '#000' : '#FFF',
+                border: '1px solid #FFD700',
+                padding: '12px 24px',
+                fontSize: '15px',
+                fontWeight: 'bold',
+                textTransform: 'uppercase',
+                cursor: 'pointer',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '8px'
+              }}
+            >
+              <ImageIcon size={18} /> Gym Photos ({photos.length})
+            </button>
+
+            <button
+              onClick={() => setMediaTab('videos')}
+              style={{
+                backgroundColor: mediaTab === 'videos' ? '#FFD700' : '#141414',
+                color: mediaTab === 'videos' ? '#000' : '#FFF',
+                border: '1px solid #FFD700',
+                padding: '12px 24px',
+                fontSize: '15px',
+                fontWeight: 'bold',
+                textTransform: 'uppercase',
+                cursor: 'pointer',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '8px'
+              }}
+            >
+              <Play size={18} /> Workout Videos ({videos.length})
+            </button>
           </div>
+
+          {mediaTab === 'photos' && (
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '16px' }}>
+              {photos.map((imgSrc, idx) => (
+                <div key={idx} style={{ border: '1px solid #333', overflow: 'hidden', height: '240px', backgroundColor: '#111' }}>
+                  <img src={imgSrc} alt={`Powerhouse Setup ${idx + 1}`} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+                </div>
+              ))}
+            </div>
+          )}
+
+          {mediaTab === 'videos' && (
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '20px' }}>
+              {videos.map((vidSrc, idx) => (
+                <div key={idx} style={{ border: '2px solid #FFD700', overflow: 'hidden', backgroundColor: '#000' }}>
+                  <video controls style={{ width: '100%', height: '260px', objectFit: 'cover', display: 'block' }}>
+                    <source src={vidSrc} type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       </section>
 
-      {/* FOOTER */}
-      <footer style={{ backgroundColor: '#000', borderTop: '2px solid #FFD700', padding: '36px 20px' }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'center', gap: '20px' }}>
+      {/* FOOTER & DEVELOPER CREDITS */}
+      <footer style={{ backgroundColor: '#000', borderTop: '2px solid #FFD700', padding: '40px 20px', marginBottom: '60px' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'flex-start', gap: '30px' }}>
+          
+          {/* Gym Details */}
           <div>
             <h3 style={{ fontSize: '26px', fontStyle: 'italic', margin: '0 0 8px 0' }}>POWERHOUSE <span style={{ color: '#FFD700' }}>GYM</span></h3>
             <p style={{ fontFamily: 'sans-serif', color: '#AAA', margin: '4px 0', display: 'flex', alignItems: 'center', gap: '8px', fontSize: '13px' }}>
@@ -292,14 +348,64 @@ export default function Home() {
             <p style={{ fontFamily: 'sans-serif', color: '#AAA', margin: '4px 0', display: 'flex', alignItems: 'center', gap: '8px', fontSize: '13px' }}>
               <Trophy size={16} color="#FFD700" /> Head Coach: Vinay Patil
             </p>
-          </div>
-          <div>
-            <a href="tel:7996287341" style={{ fontSize: '22px', color: '#FFD700', textDecoration: 'none', fontWeight: 'bold' }}>
+            <a href="tel:7996287341" style={{ fontSize: '20px', color: '#FFD700', textDecoration: 'none', fontWeight: 'bold', display: 'inline-block', marginTop: '8px' }}>
               📞 +91 7996287341
             </a>
           </div>
+
+          {/* Developer Freelance Branding */}
+          <div style={{ backgroundColor: '#111', border: '1px solid #FFD700', padding: '20px', maxWidth: '400px', width: '100%' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#FFD700', marginBottom: '8px' }}>
+              <Code size={18} />
+              <span style={{ fontSize: '14px', textTransform: 'uppercase', letterSpacing: '1px' }}>WEBSITE DEVELOPER</span>
+            </div>
+            
+            <h4 style={{ fontSize: '22px', fontStyle: 'italic', margin: '0 0 4px 0', color: '#FFF' }}>
+              ANOOP <span style={{ color: '#FFD700' }}>HAMPANNAVAR</span>
+            </h4>
+            
+            <p style={{ fontFamily: 'sans-serif', color: '#888', fontSize: '12px', margin: '0 0 12px 0', lineHeight: '1.4' }}>
+              CSE Student at Hirasugar Institute of Technology (HIT), Nidasoshi.<br />
+              Full-Stack Web & Software Freelance Developer.
+            </p>
+
+            <div style={{ display: 'flex', gap: '10px' }}>
+              <a 
+                href="https://wa.me/917760926543?text=Hi%20Anoop,%20I%20saw%20the%20Powerhouse%20Gym%20website%20and%20want%20to%20hire%20you%20for%20a%20project!" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                style={{ backgroundColor: '#FFD700', color: '#000', padding: '8px 14px', textDecoration: 'none', fontWeight: 'bold', fontSize: '11px', textTransform: 'uppercase', display: 'inline-flex', alignItems: 'center', gap: '4px' }}
+              >
+                Hire Developer <ExternalLink size={12} />
+              </a>
+              <a 
+                href="tel:7760926543" 
+                style={{ border: '1px solid #FFD700', color: '#FFD700', padding: '8px 14px', textDecoration: 'none', fontWeight: 'bold', fontSize: '11px', textTransform: 'uppercase', display: 'inline-flex', alignItems: 'center', gap: '4px' }}
+              >
+                📞 7760926543
+              </a>
+            </div>
+          </div>
+
         </div>
       </footer>
+
+      {/* FLOATING ACTION BAR FOR MOBILE */}
+      <div style={{ position: 'fixed', bottom: 0, left: 0, right: 0, zIndex: 40, backgroundColor: '#FFD700', padding: '10px 16px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: '2px solid #FFF' }}>
+        <a href="tel:7996287341" style={{ color: '#000', textDecoration: 'none', fontWeight: '900', fontSize: '13px', textTransform: 'uppercase', display: 'flex', alignItems: 'center', gap: '6px' }}>
+          <Phone size={16} /> Call Coach
+        </a>
+        
+        {/* Developer Hire Button in Mobile Bar */}
+        <a href="https://wa.me/917760926543?text=Hi%20Anoop,%20I%20want%20to%20build%20a%20website!" target="_blank" rel="noopener noreferrer" style={{ color: '#000', textDecoration: 'none', fontWeight: 'bold', fontSize: '10px', textTransform: 'uppercase', borderLeft: '1px solid #000', paddingLeft: '10px' }}>
+          Built by Anoop
+        </a>
+
+        <a href="https://wa.me/917996287341?text=Hi%20Coach%20Vinay,%20I%20want%20to%20join%20Powerhouse%20Gym!" target="_blank" rel="noopener noreferrer" style={{ backgroundColor: '#000', color: '#FFD700', padding: '8px 14px', textDecoration: 'none', fontWeight: '900', fontSize: '12px', textTransform: 'uppercase' }}>
+          WhatsApp Join
+        </a>
+      </div>
+
     </div>
   );
 }
