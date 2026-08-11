@@ -1,6 +1,6 @@
 'use client';
 
-import Navbar from '@/components/Navbar';
+import React from 'react';
 import { Phone, MapPin, Flame, Clock, CheckCircle2, Trophy, Dumbbell, Zap, HeartPulse, Activity } from 'lucide-react';
 
 export default function Home() {
@@ -22,105 +22,96 @@ export default function Home() {
   ];
 
   return (
-    <div className="min-h-screen bg-black text-white selection:bg-power-gold selection:text-black">
-      <Navbar />
+    <div style={{ backgroundColor: '#000000', color: '#ffffff', fontFamily: 'Impact, sans-serif', minHeight: '100vh' }}>
+      
+      {/* NAVBAR */}
+      <nav style={{ position: 'fixed', top: 0, left: 0, right: 0, zIndex: 50, backgroundColor: 'rgba(0,0,0,0.95)', borderBottom: '2px solid #FFD700', padding: '15px 30px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+          <div style={{ backgroundColor: '#FFD700', color: '#000', padding: '8px 12px', transform: 'skewX(-10deg)', fontWeight: '900' }}>
+            <Dumbbell size={24} />
+          </div>
+          <span style={{ fontSize: '28px', fontStyle: 'italic', letterSpacing: '2px', color: '#FFF' }}>
+            POWER<span style={{ color: '#FFD700' }}>HOUSE</span> GYM
+          </span>
+        </div>
+
+        <div style={{ display: 'flex', gap: '20px' }}>
+          <a href="tel:7996287341" style={{ backgroundColor: '#FFD700', color: '#000', padding: '10px 20px', fontWeight: 'bold', textDecoration: 'none', textTransform: 'uppercase', letterSpacing: '1px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <Phone size={16} /> Call Coach Vinay
+          </a>
+        </div>
+      </nav>
 
       {/* HERO SECTION */}
-      <section className="relative pt-28 pb-16 px-6 max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12">
-        <div className="flex-1 space-y-6">
-          <div className="flex flex-wrap gap-2">
-            <span className="inline-flex items-center gap-2 px-3 py-1 bg-power-gold/10 border border-power-gold/40 text-power-gold text-xs font-black uppercase tracking-widest">
-              <Flame size={14} /> ದೇಹವಲ್ಲ, ಶಕ್ತಿ ನಿಮ್ಮ ಪರಿಚಯ
-            </span>
-            <span className="inline-flex items-center gap-2 px-3 py-1 bg-neutral-900 border border-neutral-700 text-neutral-300 text-xs font-black uppercase tracking-widest">
-              Gents & Ladies Gym
-            </span>
+      <section style={{ paddingTop: '120px', paddingBottom: '60px', maxWidth: '1200px', margin: '0 auto', paddingLeft: '20px', paddingRight: '20px', display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '40px' }}>
+        <div style={{ flex: '1 1 500px' }}>
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', border: '1px solid #FFD700', backgroundColor: 'rgba(255,215,0,0.1)', color: '#FFD700', padding: '6px 12px', fontSize: '14px', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '20px' }}>
+            <Flame size={16} /> ದೇಹವಲ್ಲ, ಶಕ್ತಿ ನಿಮ್ಮ ಪರಿಚಯ
           </div>
 
-          <h1 className="text-5xl sm:text-6xl md:text-7xl font-black uppercase tracking-tight italic leading-none">
+          <h1 style={{ fontSize: '56px', textTransform: 'uppercase', fontStyle: 'italic', lineHeight: '1', margin: '0 0 20px 0' }}>
             DISCIPLINE TODAY.<br />
-            <span className="text-power-gold">STRENGTH TOMORROW.</span>
+            <span style={{ color: '#FFD700' }}>STRENGTH TOMORROW.</span>
           </h1>
 
-          <p className="text-neutral-400 font-medium text-base md:text-lg max-w-xl">
+          <p style={{ fontFamily: 'sans-serif', color: '#AAA', fontSize: '16px', lineHeight: '1.6', marginBottom: '30px' }}>
             Train hard, be strong, and unleash beast mode at Nidasoshi’s premier fitness facility under Head Coach Vinay Patil.
           </p>
 
-          <div className="flex flex-wrap gap-4 pt-2">
-            <a 
-              href="tel:7996287341" 
-              className="px-8 py-4 bg-power-gold text-black font-black uppercase tracking-wider text-sm hover:bg-power-yellow transition-all shadow-[0_0_25px_rgba(255,215,0,0.35)] flex items-center gap-2"
-            >
-              <Phone size={18} /> Call 7996287341
+          <div style={{ display: 'flex', gap: '15px' }}>
+            <a href="https://wa.me/917996287341" target="_blank" rel="noopener noreferrer" style={{ backgroundColor: '#FFD700', color: '#000', padding: '15px 30px', fontSize: '18px', fontWeight: '900', textDecoration: 'none', textTransform: 'uppercase', display: 'inline-block', boxShadow: '0 0 20px rgba(255,215,0,0.4)' }}>
+              Join Now on WhatsApp
             </a>
-            <a 
-              href="#plans" 
-              className="px-8 py-4 border border-neutral-700 hover:border-power-gold hover:text-power-gold font-black uppercase tracking-wider text-sm transition-all"
-            >
-              Membership Plans
-            </a>
-          </div>
-
-          <div className="pt-6 grid grid-cols-2 sm:grid-cols-3 gap-3 text-xs font-black tracking-widest uppercase text-neutral-400 border-t border-neutral-800">
-            <div>⚡ Train Hard</div>
-            <div>🔥 Be Strong</div>
-            <div>💪 Beast Mode</div>
           </div>
         </div>
 
-        {/* Hero Banner Image (.jpeg) */}
-        <div className="flex-1 relative w-full border-2 border-power-gold/50 rounded-none overflow-hidden shadow-[0_0_40px_rgba(255,215,0,0.15)] bg-neutral-900">
-          <img src="/images/banner.jpeg" alt="Powerhouse Gym Banner" className="w-full h-auto object-cover block" />
+        {/* HERO BANNER IMAGE */}
+        <div style={{ flex: '1 1 450px', border: '3px solid #FFD700', boxShadow: '0 0 30px rgba(255,215,0,0.2)', backgroundColor: '#111' }}>
+          <img src="/images/banner.jpeg" alt="Powerhouse Gym Banner" style={{ width: '100%', height: 'auto', display: 'block' }} />
         </div>
       </section>
 
       {/* BATCH TIMINGS */}
-      <section id="timings" className="py-16 bg-neutral-950 border-y border-neutral-800">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-5xl font-black uppercase italic tracking-wide">
-              BATCH <span className="text-power-gold">TIMINGS</span>
+      <section style={{ backgroundColor: '#0D0D0D', borderTop: '1px solid #222', borderBottom: '1px solid #222', padding: '60px 20px' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+          <div style={{ textAlign: 'center', marginBottom: '40px' }}>
+            <h2 style={{ fontSize: '42px', fontStyle: 'italic', margin: 0 }}>
+              BATCH <span style={{ color: '#FFD700' }}>TIMINGS</span>
             </h2>
-            <p className="text-neutral-400 text-xs font-bold uppercase tracking-widest mt-2">Dedicated Separate Timings for Gents & Ladies</p>
+            <p style={{ fontFamily: 'sans-serif', color: '#888', textTransform: 'uppercase', letterSpacing: '1px', marginTop: '5px' }}>Gents & Ladies Separate Schedules</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="p-8 bg-neutral-900 border border-neutral-800 relative group hover:border-power-gold/50 transition-all">
-              <div className="flex items-center justify-between mb-6">
-                <div className="flex items-center gap-3">
-                  <Clock className="text-power-gold" size={28} />
-                  <h3 className="text-2xl font-black uppercase tracking-wider">Gents Batch</h3>
-                </div>
-                <span className="text-[10px] bg-power-gold/10 text-power-gold border border-power-gold/30 px-2 py-1 font-bold uppercase">Morning & Evening</span>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '30px' }}>
+            <div style={{ backgroundColor: '#141414', border: '1px solid #333', padding: '30px' }}>
+              <div style={{ display: 'flex', itemsCenter: 'center', gap: '10px', marginBottom: '20px' }}>
+                <Clock color="#FFD700" size={28} />
+                <h3 style={{ fontSize: '24px', margin: 0, textTransform: 'uppercase' }}>Gents Batch</h3>
               </div>
-              <div className="space-y-4 text-neutral-300 font-bold">
-                <div className="flex justify-between border-b border-neutral-800 pb-3">
-                  <span className="text-neutral-400 uppercase text-xs">Morning Batch</span>
-                  <span className="text-power-gold text-base font-black">05:30 AM – 09:00 AM</span>
+              <div style={{ fontFamily: 'sans-serif', fontSize: '15px', color: '#DDD' }}>
+                <div style={{ display: 'flex', justifyBetween: 'space-between', borderBottom: '1px solid #222', paddingBottom: '10px', marginBottom: '10px' }}>
+                  <span>Morning Batch:</span>
+                  <strong style={{ color: '#FFD700' }}>05:30 AM – 09:00 AM</strong>
                 </div>
-                <div className="flex justify-between border-b border-neutral-800 pb-3">
-                  <span className="text-neutral-400 uppercase text-xs">Evening Batch</span>
-                  <span className="text-power-gold text-base font-black">05:00 PM – 09:00 PM</span>
+                <div style={{ display: 'flex', justifyBetween: 'space-between' }}>
+                  <span>Evening Batch:</span>
+                  <strong style={{ color: '#FFD700' }}>05:00 PM – 09:00 PM</strong>
                 </div>
               </div>
             </div>
 
-            <div className="p-8 bg-neutral-900 border border-neutral-800 relative group hover:border-power-gold/50 transition-all">
-              <div className="flex items-center justify-between mb-6">
-                <div className="flex items-center gap-3">
-                  <Clock className="text-power-gold" size={28} />
-                  <h3 className="text-2xl font-black uppercase tracking-wider">Ladies Batch</h3>
-                </div>
-                <span className="text-[10px] bg-power-gold/10 text-power-gold border border-power-gold/30 px-2 py-1 font-bold uppercase">Morning & Afternoon</span>
+            <div style={{ backgroundColor: '#141414', border: '1px solid #333', padding: '30px' }}>
+              <div style={{ display: 'flex', itemsCenter: 'center', gap: '10px', marginBottom: '20px' }}>
+                <Clock color="#FFD700" size={28} />
+                <h3 style={{ fontSize: '24px', margin: 0, textTransform: 'uppercase' }}>Ladies Batch</h3>
               </div>
-              <div className="space-y-4 text-neutral-300 font-bold">
-                <div className="flex justify-between border-b border-neutral-800 pb-3">
-                  <span className="text-neutral-400 uppercase text-xs">Morning Batch</span>
-                  <span className="text-power-gold text-base font-black">06:30 AM – 11:00 AM</span>
+              <div style={{ fontFamily: 'sans-serif', fontSize: '15px', color: '#DDD' }}>
+                <div style={{ display: 'flex', justifyBetween: 'space-between', borderBottom: '1px solid #222', paddingBottom: '10px', marginBottom: '10px' }}>
+                  <span>Morning Batch:</span>
+                  <strong style={{ color: '#FFD700' }}>06:30 AM – 11:00 AM</strong>
                 </div>
-                <div className="flex justify-between border-b border-neutral-800 pb-3">
-                  <span className="text-neutral-400 uppercase text-xs">Evening Batch</span>
-                  <span className="text-power-gold text-base font-black">03:00 PM – 05:00 PM</span>
+                <div style={{ display: 'flex', justifyBetween: 'space-between' }}>
+                  <span>Evening Batch:</span>
+                  <strong style={{ color: '#FFD700' }}>03:00 PM – 05:00 PM</strong>
                 </div>
               </div>
             </div>
@@ -129,115 +120,72 @@ export default function Home() {
       </section>
 
       {/* MEMBERSHIP PLANS */}
-      <section id="plans" className="py-20 px-6 max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-6xl font-black uppercase italic">
-            MEMBERSHIP <span className="text-power-gold">PLANS</span>
+      <section style={{ padding: '60px 20px', maxWidth: '1200px', margin: '0 auto' }}>
+        <div style={{ textAlign: 'center', marginBottom: '50px' }}>
+          <h2 style={{ fontSize: '42px', fontStyle: 'italic', margin: 0 }}>
+            MEMBERSHIP <span style={{ color: '#FFD700' }}>PLANS</span>
           </h2>
-          <p className="text-neutral-400 text-xs font-bold uppercase tracking-widest mt-2">Transparent Monthly Pricing • No Hidden Costs</p>
+          <p style={{ fontFamily: 'sans-serif', color: '#888', textTransform: 'uppercase', letterSpacing: '1px', marginTop: '5px' }}>Affordable Pricing • Heavy Equipment</p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '20px' }}>
           {plans.map((p, i) => (
-            <div key={i} className="p-8 bg-neutral-900 border border-neutral-800 hover:border-power-gold transition-all flex flex-col justify-between group">
+            <div key={i} style={{ backgroundColor: '#111', border: '1px solid #222', padding: '25px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
               <div>
-                <span className="text-[10px] font-black uppercase text-power-gold bg-power-gold/10 px-2 py-1 border border-power-gold/30 tracking-widest">{p.tag}</span>
-                <h3 className="text-xl font-black uppercase mt-4">{p.name}</h3>
-                <p className="text-xs text-neutral-400 font-medium mt-1 mb-6">{p.desc}</p>
-                <div className="mb-6">
-                  <span className="text-4xl font-black text-white group-hover:text-power-gold transition-colors">{p.price}</span>
-                  <span className="text-neutral-500 text-xs font-bold">{p.period}</span>
+                <span style={{ backgroundColor: 'rgba(255,215,0,0.1)', color: '#FFD700', border: '1px solid #FFD700', padding: '3px 8px', fontSize: '10px', textTransform: 'uppercase', letterSpacing: '1px' }}>{p.tag}</span>
+                <h3 style={{ fontSize: '22px', margin: '15px 0 5px 0', textTransform: 'uppercase' }}>{p.name}</h3>
+                <div style={{ margin: '15px 0' }}>
+                  <span style={{ fontSize: '36px', color: '#FFD700', fontWeight: 'bold' }}>{p.price}</span>
+                  <span style={{ fontFamily: 'sans-serif', color: '#666', fontSize: '12px' }}>{p.period}</span>
                 </div>
-                <ul className="space-y-2.5 text-xs font-bold text-neutral-300 mb-8">
-                  <li className="flex items-center gap-2"><CheckCircle2 size={14} className="text-power-gold" /> Heavy Machinery Access</li>
-                  <li className="flex items-center gap-2"><CheckCircle2 size={14} className="text-power-gold" /> Coach Vinay Patil Guidance</li>
-                  <li className="flex items-center gap-2"><CheckCircle2 size={14} className="text-power-gold" /> Customized Workout Chart</li>
-                </ul>
               </div>
-              <a 
-                href="https://wa.me/917996287341?text=Hi%20Coach%20Vinay,%20I%20want%20to%20join%20the%20" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="w-full py-3 bg-neutral-800 hover:bg-power-gold hover:text-black font-black uppercase text-xs text-center transition-all block"
-              >
-                Join Plan
+              <a href="https://wa.me/917996287341" target="_blank" rel="noopener noreferrer" style={{ backgroundColor: '#222', color: '#FFD700', textAlign: 'center', padding: '12px', textDecoration: 'none', textTransform: 'uppercase', fontWeight: 'bold', fontSize: '14px', border: '1px solid #FFD700', display: 'block', marginTop: '20px' }}>
+                Select Plan
               </a>
             </div>
           ))}
         </div>
       </section>
 
-      {/* EXERCISES & DISCIPLINES */}
-      <section className="py-16 bg-neutral-950 border-t border-neutral-800 px-6">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-5xl font-black uppercase italic">
-              GYM <span className="text-power-gold">EXERCISES</span>
+      {/* GALLERY */}
+      <section style={{ backgroundColor: '#0D0D0D', borderTop: '1px solid #222', padding: '60px 20px' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+          <div style={{ textAlign: 'center', marginBottom: '40px' }}>
+            <h2 style={{ fontSize: '42px', fontStyle: 'italic', margin: 0 }}>
+              THE <span style={{ color: '#FFD700' }}>IRON ARENA</span>
             </h2>
-            <p className="text-neutral-400 text-xs font-bold uppercase tracking-widest mt-2">Comprehensive Training Disciplines</p>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-4">
-            {exercises.map((e, idx) => {
-              const IconComp = e.icon;
-              return (
-                <div key={idx} className="p-4 bg-neutral-900 border border-neutral-800 text-center flex flex-col items-center justify-center gap-3 hover:border-power-gold transition-all">
-                  <IconComp className="text-power-gold" size={24} />
-                  <span className="text-xs font-black uppercase tracking-wider">{e.title}</span>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* FACILITY GALLERY (.jpeg images) */}
-      <section id="facility" className="py-20 bg-black border-t border-neutral-800">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-5xl font-black uppercase italic">
-              THE <span className="text-power-gold">IRON ARENA</span>
-            </h2>
-            <p className="text-neutral-400 text-xs font-bold uppercase tracking-widest mt-2">Real Photos from Powerhouse Gym Setup</p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="h-80 overflow-hidden border border-neutral-800 bg-neutral-900">
-              <img src="/images/gym1.jpeg" alt="Powerhouse Gym Setup 1" className="w-full h-full object-cover hover:scale-105 transition-all duration-500 block" />
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px' }}>
+            <div style={{ border: '1px solid #333', overflow: 'hidden', height: '260px' }}>
+              <img src="/images/gym1.jpeg" alt="Powerhouse Setup 1" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
             </div>
-            <div className="h-80 overflow-hidden border border-neutral-800 bg-neutral-900">
-              <img src="/images/gym2.jpeg" alt="Powerhouse Gym Setup 2" className="w-full h-full object-cover hover:scale-105 transition-all duration-500 block" />
+            <div style={{ border: '1px solid #333', overflow: 'hidden', height: '260px' }}>
+              <img src="/images/gym2.jpeg" alt="Powerhouse Setup 2" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
             </div>
-            <div className="h-80 overflow-hidden border border-neutral-800 bg-neutral-900">
-              <img src="/images/gym3.jpeg" alt="Powerhouse Gym Setup 3" className="w-full h-full object-cover hover:scale-105 transition-all duration-500 block" />
+            <div style={{ border: '1px solid #333', overflow: 'hidden', height: '260px' }}>
+              <img src="/images/gym3.jpeg" alt="Powerhouse Setup 3" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
             </div>
           </div>
         </div>
       </section>
 
       {/* FOOTER */}
-      <footer id="contact" className="py-16 bg-neutral-950 border-t border-neutral-800 px-6">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      <footer style={{ backgroundColor: '#000', borderTop: '2px solid #FFD700', padding: '40px 20px', textFont: 'sans-serif' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'center', gap: '20px' }}>
           <div>
-            <h3 className="text-3xl font-black uppercase italic mb-2">POWERHOUSE <span className="text-power-gold">GYM</span></h3>
-            <p className="text-sm text-power-gold font-bold mb-4">ದೇಹವಲ್ಲ, ಶಕ್ತಿ ನಿಮ್ಮ ಪರಿಚಯ</p>
-            <p className="flex items-center gap-2 text-neutral-300 font-bold mb-2 text-sm">
-              <MapPin size={18} className="text-power-gold shrink-0" /> Nidasoshi Gate, Tal. Hukkeri, Dist. Belagavi
+            <h3 style={{ fontSize: '28px', fontStyle: 'italic', margin: '0 0 5px 0' }}>POWERHOUSE <span style={{ color: '#FFD700' }}>GYM</span></h3>
+            <p style={{ fontFamily: 'sans-serif', color: '#AAA', margin: '5px 0', display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <MapPin size={16} color="#FFD700" /> Nidasoshi Gate, Tal. Hukkeri, Dist. Belagavi
             </p>
-            <p className="flex items-center gap-2 text-neutral-300 font-bold mb-6 text-sm">
-              <Trophy size={18} className="text-power-gold shrink-0" /> Contact: Vinay Patil
+            <p style={{ fontFamily: 'sans-serif', color: '#AAA', margin: '5px 0', display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <Trophy size={16} color="#FFD700" /> Head Coach: Vinay Patil
             </p>
-            <a 
-              href="tel:7996287341" 
-              className="inline-flex items-center gap-2 text-2xl font-black text-power-gold hover:underline"
-            >
-              <Phone size={22} /> +91 7996287341
-            </a>
           </div>
-
-          <div className="text-left md:text-right text-xs text-neutral-500 font-bold space-y-2">
-            <p>© 2026 Powerhouse Gym Nidasoshi. All Rights Reserved.</p>
-            <p>Discipline Today. Strength Tomorrow.</p>
+          <div>
+            <a href="tel:7996287341" style={{ fontSize: '24px', color: '#FFD700', textDecoration: 'none', fontWeight: 'bold' }}>
+              📞 +91 7996287341
+            </a>
           </div>
         </div>
       </footer>
