@@ -268,6 +268,15 @@ export default function Home() {
             <div style={{ border: '1px solid #333', overflow: 'hidden', height: '220px' }}>
               <img src="/images/gym3.jpeg" alt="Powerhouse Setup 3" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
             </div>
+            <div style={{ border: '1px solid #333', overflow: 'hidden', height: '220px' }}>
+              <img src="/images/gym4.jpg" alt="Powerhouse Setup 3" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+            </div>
+            <div style={{ border: '1px solid #333', overflow: 'hidden', height: '220px' }}>
+              <img src="/images/gym5.jpg" alt="Powerhouse Setup 3" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+            </div>
+            <div style={{ border: '1px solid #333', overflow: 'hidden', height: '220px' }}>
+              <img src="/images/gym6.jpg" alt="Powerhouse Setup 3" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+            </div>
           </div>
         </div>
       </section>
