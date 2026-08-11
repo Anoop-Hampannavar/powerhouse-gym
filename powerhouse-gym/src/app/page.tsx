@@ -25,13 +25,14 @@ export default function Home() {
     '/images/gym1.jpeg',
     '/images/gym2.jpeg',
     '/images/gym3.jpeg',
-    '/images/gym4.jpg',
-    '/images/gym5.jpg',
-    '/images/gym6.jpg',
+    '/images/gym4.jpeg',
+    '/images/gym5.jpeg',
+    '/images/gym6.jpeg',
   ];
 
   const videos = [
     '/videos/video1.mp4',
+    '/videos/video2.mp4',
   ];
 
   return (
@@ -119,16 +120,9 @@ export default function Home() {
             <span style={{ color: '#FFD700' }}>STRENGTH TOMORROW.</span>
           </h1>
 
-          <p style={{ fontFamily: 'sans-serif', color: '#AAA', fontSize: '16px', lineHeight: '1.5', marginBottom: '24px' }}>
+          <p style={{ fontFamily: 'sans-serif', color: '#AAA', fontSize: '16px', lineHeight: '1.5', marginBottom: '28px' }}>
             Train hard, be strong, and unleash beast mode at Nidasoshi’s premier fitness facility under Head Coach Vinay Patil.
           </p>
-
-          <div style={{ display: 'flex', gap: '20px', marginBottom: '24px', backgroundColor: '#111', border: '1px solid #333', padding: '15px' }}>
-            <div>
-              <span style={{ fontSize: '24px', color: '#FFD700', display: 'block' }}>1,500,000+ LBS</span>
-              <span style={{ fontFamily: 'sans-serif', fontSize: '11px', color: '#888', textTransform: 'uppercase', letterSpacing: '1px' }}>LIFTED THIS YEAR</span>
-            </div>
-          </div>
 
           <div style={{ display: 'flex', gap: '12px', width: '100%' }}>
             <a href="https://wa.me/917996287341?text=Hi%20Coach%20Vinay,%20I%20want%20to%20join%20Powerhouse%20Gym!" target="_blank" rel="noopener noreferrer" className="glow-box" style={{ backgroundColor: '#FFD700', color: '#000', padding: '16px 24px', fontSize: '16px', fontWeight: '900', textDecoration: 'none', textTransform: 'uppercase', display: 'block', width: '100%', textAlign: 'center' }}>
@@ -334,7 +328,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* FOOTER & DEVELOPER CREDITS */}
+      {/* FOOTER & DEVELOPER CREDITS WITH CIRCLE IMAGE */}
       <footer style={{ backgroundColor: '#000', borderTop: '2px solid #FFD700', padding: '40px 20px', marginBottom: '60px' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'flex-start', gap: '30px' }}>
           
@@ -352,18 +346,35 @@ export default function Home() {
             </a>
           </div>
 
-          {/* Developer Freelance Branding */}
-          <div style={{ backgroundColor: '#111', border: '1px solid #FFD700', padding: '20px', maxWidth: '400px', width: '100%' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#FFD700', marginBottom: '8px' }}>
-              <Code size={18} />
-              <span style={{ fontSize: '14px', textTransform: 'uppercase', letterSpacing: '1px' }}>WEBSITE DEVELOPER</span>
+          {/* Developer Branding Card with Circular Avatar */}
+          <div style={{ backgroundColor: '#111', border: '1px solid #FFD700', padding: '20px', maxWidth: '420px', width: '100%' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '14px', marginBottom: '12px' }}>
+              
+              {/* Circular Avatar */}
+              <div style={{ width: '56px', height: '56px', borderRadius: '50%', border: '2px solid #FFD700', overflow: 'hidden', flexShrink: 0, backgroundColor: '#000' }}>
+                <img 
+                  src="/images/anoop.jpeg" 
+                  alt="Anoop Hampannavar" 
+                  onError={(e) => {
+                    // Fallback to initial avatar if image is not uploaded yet
+                    (e.target as HTMLImageElement).src = 'https://ui-avatars.com/api/?name=Anoop+Hampannavar&background=FFD700&color=000';
+                  }}
+                  style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} 
+                />
+              </div>
+
+              <div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: '#FFD700' }}>
+                  <Code size={14} />
+                  <span style={{ fontSize: '11px', textTransform: 'uppercase', letterSpacing: '1px' }}>WEBSITE DEVELOPER</span>
+                </div>
+                <h4 style={{ fontSize: '20px', fontStyle: 'italic', margin: '2px 0 0 0', color: '#FFF' }}>
+                  ANOOP <span style={{ color: '#FFD700' }}>HAMPANNAVAR</span>
+                </h4>
+              </div>
             </div>
-            
-            <h4 style={{ fontSize: '22px', fontStyle: 'italic', margin: '0 0 4px 0', color: '#FFF' }}>
-              ANOOP <span style={{ color: '#FFD700' }}>HAMPANNAVAR</span>
-            </h4>
-            
-            <p style={{ fontFamily: 'sans-serif', color: '#888', fontSize: '12px', margin: '0 0 12px 0', lineHeight: '1.4' }}>
+
+            <p style={{ fontFamily: 'sans-serif', color: '#AAA', fontSize: '12px', margin: '0 0 14px 0', lineHeight: '1.4' }}>
               CSE Student at Hirasugar Institute of Technology (HIT), Nidasoshi.<br />
               Full-Stack Web & Software Freelance Developer.
             </p>
@@ -389,15 +400,24 @@ export default function Home() {
         </div>
       </footer>
 
-      {/* FLOATING ACTION BAR FOR MOBILE */}
-      <div style={{ position: 'fixed', bottom: 0, left: 0, right: 0, zIndex: 40, backgroundColor: '#FFD700', padding: '10px 16px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: '2px solid #FFF' }}>
+      {/* FLOATING ACTION BAR FOR MOBILE WITH CIRCLE AVATAR */}
+      <div style={{ position: 'fixed', bottom: 0, left: 0, right: 0, zIndex: 40, backgroundColor: '#FFD700', padding: '8px 16px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: '2px solid #FFF' }}>
         <a href="tel:7996287341" style={{ color: '#000', textDecoration: 'none', fontWeight: '900', fontSize: '13px', textTransform: 'uppercase', display: 'flex', alignItems: 'center', gap: '6px' }}>
           <Phone size={16} /> Call Coach
         </a>
         
-        {/* Developer Hire Button in Mobile Bar */}
-        <a href="https://wa.me/917760926543?text=Hi%20Anoop,%20I%20want%20to%20build%20a%20website!" target="_blank" rel="noopener noreferrer" style={{ color: '#000', textDecoration: 'none', fontWeight: 'bold', fontSize: '10px', textTransform: 'uppercase', borderLeft: '1px solid #000', paddingLeft: '10px' }}>
-          Built by Anoop
+        <a href="https://wa.me/917760926543?text=Hi%20Anoop,%20I%20want%20to%20build%20a%20website!" target="_blank" rel="noopener noreferrer" style={{ color: '#000', textDecoration: 'none', fontWeight: 'bold', fontSize: '11px', textTransform: 'uppercase', display: 'flex', alignItems: 'center', gap: '6px' }}>
+          <div style={{ width: '24px', height: '24px', borderRadius: '50%', border: '1px solid #000', overflow: 'hidden', backgroundColor: '#000' }}>
+            <img 
+              src="/images/anoop.jpeg" 
+              alt="Anoop" 
+              onError={(e) => {
+                (e.target as HTMLImageElement).src = 'https://ui-avatars.com/api/?name=Anoop+Hampannavar&background=000&color=FFD700';
+              }}
+              style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} 
+            />
+          </div>
+          <span>Built by Anoop</span>
         </a>
 
         <a href="https://wa.me/917996287341?text=Hi%20Coach%20Vinay,%20I%20want%20to%20join%20Powerhouse%20Gym!" target="_blank" rel="noopener noreferrer" style={{ backgroundColor: '#000', color: '#FFD700', padding: '8px 14px', textDecoration: 'none', fontWeight: '900', fontSize: '12px', textTransform: 'uppercase' }}>
