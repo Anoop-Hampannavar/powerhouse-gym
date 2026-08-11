@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Phone, MapPin, Flame, Clock, Trophy, Dumbbell, Zap, HeartPulse, Activity, ChevronRight } from 'lucide-react';
+import { Phone, MapPin, Flame, Clock, Trophy, Dumbbell, Zap, HeartPulse, Activity } from 'lucide-react';
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
@@ -21,45 +21,48 @@ export default function Home() {
     { name: 'Personal Training', price: '₹1999', period: '/month', tag: '1-on-1 Guidance' },
   ];
 
-  const muscleData: Record<string, { exercise: string; equipment: string; tip: string }> = {
+  const muscleData: Record<string, { exercise: string; equipment: string; tip: string; icon: string; animationClass: string }> = {
     Chest: {
       exercise: 'Incline Dumbbell Press & Cable Flyes',
       equipment: 'Heavy Adjustable Benches, Cable Crossover Station',
-      tip: 'Build thick upper chest plates with controlled negative reps.'
+      tip: 'Build thick upper chest plates with controlled negative reps.',
+      icon: '🏋️‍♂️',
+      animationClass: 'animate-chest'
     },
     Back: {
       exercise: 'Lat Pulldowns & T-Bar Rows',
       equipment: 'Heavy Cable Row, Lat Pulldown Machine, T-Bar Setup',
-      tip: 'Squeeze deep at peak contraction for maximum lats width.'
+      tip: 'Squeeze deep at peak contraction for maximum lats width.',
+      icon: '⚡',
+      animationClass: 'animate-back'
     },
     Legs: {
       exercise: 'Heavy Squats, Leg Press & Hack Squats',
       equipment: '45-Degree Heavy Leg Press, Smith Machine, Squat Racks',
-      tip: 'Drive through your heels for explosive quad and posterior power.'
+      tip: 'Drive through your heels for explosive quad and posterior power.',
+      icon: '🦵',
+      animationClass: 'animate-legs'
     },
     Arms: {
       exercise: 'Barbell Preacher Curls & Tricep Pushdowns',
       equipment: 'EZ-Curl Bars, Preacher Bench, Dual Pulley Station',
-      tip: 'Keep elbows locked in position to isolate biceps and triceps.'
+      tip: 'Keep elbows locked in position to isolate biceps and triceps.',
+      icon: '💪',
+      animationClass: 'animate-arms'
     },
     Shoulders: {
       exercise: 'Overhead Press & Lateral Raises',
       equipment: 'Dumbbell Rack (2kg - 40kg), Shoulder Press Machine',
-      tip: 'Strict form overhead pressing builds dense capped deltoids.'
+      tip: 'Strict form overhead pressing builds dense capped deltoids.',
+      icon: '🔥',
+      animationClass: 'animate-shoulders'
     }
   };
-
-  const hallOfFame = [
-    { lift: 'BENCH PRESS', record: '150 KG', holder: 'Gents Squad Elite', icon: '🏋️' },
-    { lift: 'DEADLIFT', record: '230 KG', holder: 'Heavy Iron Club', icon: '🔥' },
-    { lift: 'SQUAT', record: '190 KG', holder: 'Powerhouse Beast', icon: '⚡' },
-    { lift: 'OVERHEAD PRESS', record: '95 KG', holder: 'Strength Warrior', icon: '🏆' },
-  ];
 
   return (
     <div style={{ backgroundColor: '#000000', color: '#ffffff', fontFamily: 'Impact, sans-serif', minHeight: '100vh', width: '100%', overflowX: 'hidden' }}>
       
-      {/* KEYFRAME ANIMATIONS & STYLES */}
+      {/* PURE CSS ANIMATED MOTION STYLES */}
       <style jsx global>{`
         * {
           box-sizing: border-box;
@@ -72,12 +75,37 @@ export default function Home() {
           0%, 100% { box-shadow: 0 0 15px rgba(255, 215, 0, 0.2); }
           50% { box-shadow: 0 0 35px rgba(255, 215, 0, 0.6); }
         }
-        .animate-progress {
-          animation: loaderProgress 1.8s ease-in-out forwards;
+        /* EXERCISE ANIMATION LOOPS */
+        @keyframes chestPress {
+          0%, 100% { transform: translateY(0px) scale(1); }
+          50% { transform: translateY(-20px) scale(1.15); }
         }
-        .glow-box {
-          animation: pulseGlow 3s infinite ease-in-out;
+        @keyframes latPulldown {
+          0%, 100% { transform: translateY(-20px) rotate(0deg); }
+          50% { transform: translateY(20px) rotate(-10deg); }
         }
+        @keyframes legSquat {
+          0%, 100% { transform: scaleY(1); }
+          50% { transform: scaleY(0.75); }
+        }
+        @keyframes armCurl {
+          0%, 100% { transform: rotate(0deg) scale(1); }
+          50% { transform: rotate(-25deg) scale(1.2); }
+        }
+        @keyframes shoulderPress {
+          0%, 100% { transform: translateY(15px); }
+          50% { transform: translateY(-15px); }
+        }
+
+        .animate-chest { animation: chestPress 1.5s infinite ease-in-out; }
+        .animate-back { animation: latPulldown 1.8s infinite ease-in-out; }
+        .animate-legs { animation: legSquat 1.6s infinite ease-in-out; }
+        .animate-arms { animation: armCurl 1.4s infinite ease-in-out; }
+        .animate-shoulders { animation: shoulderPress 1.5s infinite ease-in-out; }
+
+        .animate-progress { animation: loaderProgress 1.8s ease-in-out forwards; }
+        .glow-box { animation: pulseGlow 3s infinite ease-in-out; }
+
         @media (max-width: 768px) {
           .nav-container { padding: 12px 16px !important; }
           .nav-logo-text { font-size: 20px !important; }
@@ -87,6 +115,8 @@ export default function Home() {
           .section-title { font-size: 32px !important; }
           .coach-container { flex-direction: column !important; text-align: center !important; }
           .muscle-btn-grid { grid-template-columns: repeat(3, 1fr) !important; }
+          .target-card { flex-direction: column !important; text-align: center !important; }
+          .target-media { flex: 0 0 100% !important; max-width: 100% !important; height: 180px !important; }
         }
       `}</style>
 
@@ -150,7 +180,6 @@ export default function Home() {
             Train hard, be strong, and unleash beast mode at Nidasoshi’s premier fitness facility under Head Coach Vinay Patil.
           </p>
 
-          {/* TONNAGE TICKER METRIC */}
           <div style={{ display: 'flex', gap: '20px', marginBottom: '24px', backgroundColor: '#111', border: '1px solid #333', padding: '15px' }}>
             <div>
               <span style={{ fontSize: '24px', color: '#FFD700', display: 'block' }}>1,500,000+ LBS</span>
@@ -171,14 +200,14 @@ export default function Home() {
         </div>
       </section>
 
-      {/* INTERACTIVE MUSCLE GROUP SELECTOR */}
+      {/* PURE CSS ANIMATED MUSCLE TARGET ZONE */}
       <section style={{ backgroundColor: '#0A0A0A', borderTop: '1px solid #222', borderBottom: '1px solid #222', padding: '50px 20px' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: '32px' }}>
             <h2 className="section-title" style={{ fontSize: '42px', fontStyle: 'italic', margin: 0 }}>
               MUSCLE <span style={{ color: '#FFD700' }}>TARGET ZONE</span>
             </h2>
-            <p style={{ fontFamily: 'sans-serif', color: '#888', textTransform: 'uppercase', letterSpacing: '1px', marginTop: '6px', fontSize: '12px' }}>Tap a Muscle Group to View Targeted Machines</p>
+            <p style={{ fontFamily: 'sans-serif', color: '#888', textTransform: 'uppercase', letterSpacing: '1px', marginTop: '6px', fontSize: '12px' }}>Tap a Muscle Group to See Interactive Workouts & Equipment</p>
           </div>
 
           {/* Muscle Selector Tabs */}
@@ -204,45 +233,41 @@ export default function Home() {
             ))}
           </div>
 
-          {/* Active Target Info Card */}
-          <div style={{ backgroundColor: '#111', border: '1px solid #FFD700', padding: '24px', position: 'relative' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#FFD700', marginBottom: '12px' }}>
-              <Zap size={20} />
-              <h3 style={{ fontSize: '24px', margin: 0, textTransform: 'uppercase' }}>{activeMuscle} Targeting</h3>
+          {/* Active Motion Card */}
+          <div className="target-card" style={{ backgroundColor: '#111', border: '1px solid #FFD700', padding: '24px', display: 'flex', alignItems: 'center', gap: '30px' }}>
+            
+            {/* CSS Looping Motion Demo Graphic */}
+            <div className="target-media" style={{ flex: '0 0 220px', width: '100%', height: '180px', border: '2px solid #FFD700', backgroundColor: '#000', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', position: 'relative', overflow: 'hidden' }}>
+              <div className={muscleData[activeMuscle].animationClass} style={{ fontSize: '64px', filter: 'drop-shadow(0 0 10px #FFD700)' }}>
+                {muscleData[activeMuscle].icon}
+              </div>
+              <span style={{ fontFamily: 'sans-serif', color: '#FFD700', fontSize: '10px', textTransform: 'uppercase', letterSpacing: '1.5px', marginTop: '10px', fontWeight: 'bold' }}>
+                LIVE DEMO MOTION
+              </span>
             </div>
 
-            <div style={{ fontFamily: 'sans-serif', fontSize: '14px', lineHeight: '1.6', color: '#DDD' }}>
-              <p style={{ margin: '0 0 8px 0' }}><strong style={{ color: '#FFD700' }}>Key Workouts:</strong> {muscleData[activeMuscle].exercise}</p>
-              <p style={{ margin: '0 0 8px 0' }}><strong style={{ color: '#FFD700' }}>Powerhouse Setup:</strong> {muscleData[activeMuscle].equipment}</p>
-              <p style={{ margin: 0, color: '#AAA', fontStyle: 'italic' }}>"{muscleData[activeMuscle].tip}"</p>
+            {/* Workout Info */}
+            <div style={{ flex: 1 }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#FFD700', marginBottom: '12px' }}>
+                <Zap size={22} />
+                <h3 style={{ fontSize: '28px', margin: 0, textTransform: 'uppercase' }}>{activeMuscle} WORKOUT & MACHINES</h3>
+              </div>
+
+              <div style={{ fontFamily: 'sans-serif', fontSize: '15px', lineHeight: '1.6', color: '#DDD' }}>
+                <p style={{ margin: '0 0 10px 0' }}><strong style={{ color: '#FFD700' }}>Key Workouts:</strong> {muscleData[activeMuscle].exercise}</p>
+                <p style={{ margin: '0 0 10px 0' }}><strong style={{ color: '#FFD700' }}>Powerhouse Setup:</strong> {muscleData[activeMuscle].equipment}</p>
+                <p style={{ margin: 0, color: '#AAA', fontStyle: 'italic', borderLeft: '2px solid #FFD700', paddingLeft: '10px' }}>
+                  "{muscleData[activeMuscle].tip}"
+                </p>
+              </div>
             </div>
+
           </div>
         </div>
       </section>
 
-      {/* AGGRESSIVE PR WALL (HALL OF FAME) */}
-      <section style={{ padding: '50px 20px', maxWidth: '1200px', margin: '0 auto' }}>
-        <div style={{ textAlign: 'center', marginBottom: '40px' }}>
-          <h2 className="section-title" style={{ fontSize: '42px', fontStyle: 'italic', margin: 0 }}>
-            HALL OF <span style={{ color: '#FFD700' }}>FAME</span>
-          </h2>
-          <p style={{ fontFamily: 'sans-serif', color: '#888', textTransform: 'uppercase', letterSpacing: '1px', marginTop: '6px', fontSize: '12px' }}>Top Lifts Recorded at Powerhouse Gym</p>
-        </div>
-
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '16px' }}>
-          {hallOfFame.map((item, idx) => (
-            <div key={idx} style={{ backgroundColor: '#111', border: '1px solid #333', padding: '20px', textAlign: 'center', position: 'relative' }}>
-              <span style={{ fontSize: '28px', display: 'block', marginBottom: '8px' }}>{item.icon}</span>
-              <h3 style={{ fontSize: '18px', color: '#AAA', margin: '0 0 4px 0', textTransform: 'uppercase' }}>{item.lift}</h3>
-              <div style={{ fontSize: '36px', color: '#FFD700', fontWeight: 'bold', margin: '8px 0' }}>{item.record}</div>
-              <span style={{ fontFamily: 'sans-serif', fontSize: '11px', color: '#666', textTransform: 'uppercase', letterSpacing: '1px' }}>{item.holder}</span>
-            </div>
-          ))}
-        </div>
-      </section>
-
       {/* HEAD COACH SHOWCASE */}
-      <section style={{ backgroundColor: '#0D0D0D', borderTop: '1px solid #222', borderBottom: '1px solid #222', padding: '50px 20px' }}>
+      <section style={{ backgroundColor: '#0D0D0D', borderBottom: '1px solid #222', padding: '50px 20px' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
           <div className="coach-container" style={{ display: 'flex', alignItems: 'center', gap: '40px', backgroundColor: '#111', border: '1px solid #FFD700', padding: '30px' }}>
             <div style={{ flex: '0 0 240px', width: '100%', maxWidth: '240px', border: '2px solid #FFD700', overflow: 'hidden', margin: '0 auto' }}>
