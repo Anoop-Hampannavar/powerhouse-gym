@@ -25,9 +25,9 @@ export default function Home() {
     '/images/gym1.jpeg',
     '/images/gym2.jpeg',
     '/images/gym3.jpeg',
-    '/images/gym4.jpeg',
-    '/images/gym5.jpeg',
-    '/images/gym6.jpeg',
+    '/images/gym4.jpg',
+    '/images/gym5.jpg',
+    '/images/gym6.jpg',
   ];
 
   const videos = [
