@@ -1,6 +1,6 @@
 'use client';
 
-import Navbar from '@/components/layout/Navbar';;
+import Navbar from '@/components/Navbar';
 import { Phone, MapPin, Flame, Clock, CheckCircle2, Trophy, Dumbbell, Zap, HeartPulse, Activity } from 'lucide-react';
 
 export default function Home() {
@@ -61,7 +61,6 @@ export default function Home() {
             </a>
           </div>
 
-          {/* Slogan Badges */}
           <div className="pt-6 grid grid-cols-2 sm:grid-cols-3 gap-3 text-xs font-black tracking-widest uppercase text-neutral-400 border-t border-neutral-800">
             <div>⚡ Train Hard</div>
             <div>🔥 Be Strong</div>
@@ -69,9 +68,9 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Banner Display */}
-        <div className="flex-1 relative w-full border-2 border-power-gold/50 rounded-none overflow-hidden shadow-[0_0_40px_rgba(255,215,0,0.15)]">
-          <img src="/images/banner.jpg" alt="Powerhouse Gym Banner" className="w-full h-auto object-cover" />
+        {/* Hero Banner Image (.jpeg) */}
+        <div className="flex-1 relative w-full border-2 border-power-gold/50 rounded-none overflow-hidden shadow-[0_0_40px_rgba(255,215,0,0.15)] bg-neutral-900">
+          <img src="/images/banner.jpeg" alt="Powerhouse Gym Banner" className="w-full h-auto object-cover block" />
         </div>
       </section>
 
@@ -86,7 +85,6 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* Gents Schedule */}
             <div className="p-8 bg-neutral-900 border border-neutral-800 relative group hover:border-power-gold/50 transition-all">
               <div className="flex items-center justify-between mb-6">
                 <div className="flex items-center gap-3">
@@ -107,7 +105,6 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Ladies Schedule */}
             <div className="p-8 bg-neutral-900 border border-neutral-800 relative group hover:border-power-gold/50 transition-all">
               <div className="flex items-center justify-between mb-6">
                 <div className="flex items-center gap-3">
@@ -194,7 +191,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* FACILITY GALLERY */}
+      {/* FACILITY GALLERY (.jpeg images) */}
       <section id="facility" className="py-20 bg-black border-t border-neutral-800">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-12">
@@ -205,20 +202,20 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="h-80 overflow-hidden border border-neutral-800">
-              <img src="/images/gym1.jpg" alt="Powerhouse Gym Setup 1" className="w-full h-full object-cover hover:scale-105 transition-all duration-500" />
+            <div className="h-80 overflow-hidden border border-neutral-800 bg-neutral-900">
+              <img src="/images/gym1.jpeg" alt="Powerhouse Gym Setup 1" className="w-full h-full object-cover hover:scale-105 transition-all duration-500 block" />
             </div>
-            <div className="h-80 overflow-hidden border border-neutral-800">
-              <img src="/images/gym2.jpg" alt="Powerhouse Gym Setup 2" className="w-full h-full object-cover hover:scale-105 transition-all duration-500" />
+            <div className="h-80 overflow-hidden border border-neutral-800 bg-neutral-900">
+              <img src="/images/gym2.jpeg" alt="Powerhouse Gym Setup 2" className="w-full h-full object-cover hover:scale-105 transition-all duration-500 block" />
             </div>
-            <div className="h-80 overflow-hidden border border-neutral-800">
-              <img src="/images/gym3.jpg" alt="Powerhouse Gym Setup 3" className="w-full h-full object-cover hover:scale-105 transition-all duration-500" />
+            <div className="h-80 overflow-hidden border border-neutral-800 bg-neutral-900">
+              <img src="/images/gym3.jpeg" alt="Powerhouse Gym Setup 3" className="w-full h-full object-cover hover:scale-105 transition-all duration-500 block" />
             </div>
           </div>
         </div>
       </section>
 
-      {/* FOOTER / LOCATION */}
+      {/* FOOTER */}
       <footer id="contact" className="py-16 bg-neutral-950 border-t border-neutral-800 px-6">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div>
