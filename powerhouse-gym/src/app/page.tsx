@@ -32,7 +32,6 @@ export default function Home() {
 
   const videos = [
     '/videos/video1.mp4',
-    '/videos/video2.mp4',
   ];
 
   return (
