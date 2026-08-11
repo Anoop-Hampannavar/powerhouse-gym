@@ -1,9 +1,18 @@
 'use client';
 
-import React from 'react';
-import { Phone, MapPin, Flame, Clock, CheckCircle2, Trophy, Dumbbell, Zap, HeartPulse, Activity } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Phone, MapPin, Flame, Clock, Trophy, Dumbbell, Zap, HeartPulse, Activity, User, Award } from 'lucide-react';
 
 export default function Home() {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 1800);
+    return () => clearTimeout(timer);
+  }, []);
+
   const plans = [
     { name: 'Student Special', price: '₹499', period: '/month', tag: 'Student Offer', desc: 'Affordable entry rate for college and school students.' },
     { name: 'Strength Training', price: '₹699', period: '/month', tag: 'Standard', desc: 'Full access to weight training & dumbbell equipment.' },
@@ -18,7 +27,6 @@ export default function Home() {
     { title: 'Strength Training', icon: Zap },
     { title: 'Functional Training', icon: Flame },
     { title: 'Cross Training', icon: Trophy },
-    { title: 'Core Training', icon: CheckCircle2 },
   ];
 
   return (
@@ -28,6 +36,13 @@ export default function Home() {
       <style jsx global>{`
         * {
           box-sizing: border-box;
+        }
+        @keyframes loaderProgress {
+          0% { width: 0%; }
+          100% { width: 100%; }
+        }
+        .animate-progress {
+          animation: loaderProgress 1.8s ease-in-out forwards;
         }
         @media (max-width: 768px) {
           .nav-container {
@@ -73,8 +88,38 @@ export default function Home() {
           .footer-item {
             justify-content: center !important;
           }
+          .coach-container {
+            flex-direction: column !important;
+            text-align: center !important;
+          }
         }
       `}</style>
+
+      {/* POWERFUL GYM LOADER SCREEN */}
+      {loading && (
+        <div style={{ position: 'fixed', inset: 0, zIndex: 100, backgroundColor: '#000000', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', padding: '20px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px' }}>
+            <div style={{ backgroundColor: '#FFD700', color: '#000', padding: '10px 14px', transform: 'skewX(-10deg)', fontWeight: '900' }}>
+              <Dumbbell size={32} />
+            </div>
+            <h1 style={{ fontSize: '40px', fontStyle: 'italic', letterSpacing: '2px', color: '#FFF', margin: 0 }}>
+              POWER<span style={{ color: '#FFD700' }}>HOUSE</span> GYM
+            </h1>
+          </div>
+
+          <p style={{ fontFamily: 'sans-serif', color: '#FFD700', fontSize: '12px', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '24px', fontWeight: 'bold', textAlign: 'center' }}>
+            📍 Nidasoshi Gate | Tal. Hukkeri | Dist. Belagavi
+          </p>
+
+          <div style={{ width: '260px', height: '6px', backgroundColor: '#1A1A1A', border: '1px solid #333', overflow: 'hidden' }}>
+            <div className="animate-progress" style={{ height: '100%', backgroundColor: '#FFD700', boxShadow: '0 0 15px #FFD700' }} />
+          </div>
+
+          <span style={{ fontFamily: 'sans-serif', color: '#666', fontSize: '11px', textTransform: 'uppercase', letterSpacing: '1.5px', marginTop: '12px' }}>
+            FORGING STRENGTH...
+          </span>
+        </div>
+      )}
 
       {/* NAVBAR */}
       <nav className="nav-container" style={{ position: 'fixed', top: 0, left: 0, right: 0, zIndex: 50, backgroundColor: 'rgba(0,0,0,0.95)', borderBottom: '2px solid #FFD700', padding: '15px 30px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
@@ -123,8 +168,38 @@ export default function Home() {
         </div>
       </section>
 
+      {/* HEAD COACH SHOWCASE SECTION */}
+      <section style={{ backgroundColor: '#0A0A0A', borderTop: '1px solid #222', borderBottom: '1px solid #222', padding: '50px 20px' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+          <div className="coach-container" style={{ display: 'flex', alignItems: 'center', gap: '40px', backgroundColor: '#111', border: '1px solid #FFD700', padding: '30px' }}>
+            <div style={{ flex: '0 0 240px', width: '100%', maxWidth: '240px', border: '2px solid #FFD700', overflow: 'hidden', margin: '0 auto' }}>
+              <img src="/images/coach.jpeg" alt="Coach Vinay Patil" style={{ width: '100%', height: 'auto', display: 'block', objectFit: 'cover' }} />
+            </div>
+            <div style={{ flex: 1 }}>
+              <span style={{ backgroundColor: 'rgba(255,215,0,0.1)', color: '#FFD700', border: '1px solid #FFD700', padding: '4px 10px', fontSize: '11px', textTransform: 'uppercase', letterSpacing: '1px' }}>
+                FOUNDER & HEAD COACH
+              </span>
+              <h2 style={{ fontSize: '38px', fontStyle: 'italic', margin: '12px 0 6px 0', color: '#FFF' }}>
+                VINAY <span style={{ color: '#FFD700' }}>PATIL</span>
+              </h2>
+              <p style={{ fontFamily: 'sans-serif', color: '#AAA', fontSize: '14px', lineHeight: '1.6', margin: '0 0 20px 0' }}>
+                Personalized strength training, body transformation, and custom diet guidance tailored for gents and ladies at Nidasoshi Gate.
+              </p>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px' }}>
+                <a href="tel:7996287341" style={{ backgroundColor: '#FFD700', color: '#000', padding: '12px 20px', textDecoration: 'none', fontWeight: 'bold', fontSize: '13px', textTransform: 'uppercase', display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+                  <Phone size={14} /> Call 7996287341
+                </a>
+                <a href="https://wa.me/917996287341?text=Hi%20Coach%20Vinay,%20I%20have%20a%20question%20about%20Powerhouse%20Gym!" target="_blank" rel="noopener noreferrer" style={{ border: '1px solid #FFD700', color: '#FFD700', padding: '12px 20px', textDecoration: 'none', fontWeight: 'bold', fontSize: '13px', textTransform: 'uppercase', display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+                  WhatsApp Direct
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* BATCH TIMINGS */}
-      <section style={{ backgroundColor: '#0D0D0D', borderTop: '1px solid #222', borderBottom: '1px solid #222', padding: '50px 20px' }}>
+      <section style={{ backgroundColor: '#0D0D0D', borderBottom: '1px solid #222', padding: '50px 20px' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: '32px' }}>
             <h2 className="section-title" style={{ fontSize: '42px', fontStyle: 'italic', margin: 0 }}>
@@ -173,7 +248,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* MEMBERSHIP PLANS */}
+      {/* MEMBERSHIP PLANS (WITH PRE-FILLED WHATSAPP LINKS) */}
       <section style={{ padding: '50px 20px', maxWidth: '1200px', margin: '0 auto' }}>
         <div style={{ textAlign: 'center', marginBottom: '40px' }}>
           <h2 className="section-title" style={{ fontSize: '42px', fontStyle: 'italic', margin: 0 }}>
@@ -183,21 +258,31 @@ export default function Home() {
         </div>
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '16px' }}>
-          {plans.map((p, i) => (
-            <div key={i} className="plan-card" style={{ backgroundColor: '#111', border: '1px solid #222', padding: '20px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
-              <div>
-                <span style={{ backgroundColor: 'rgba(255,215,0,0.1)', color: '#FFD700', border: '1px solid #FFD700', padding: '3px 8px', fontSize: '10px', textTransform: 'uppercase', letterSpacing: '1px' }}>{p.tag}</span>
-                <h3 style={{ fontSize: '20px', margin: '12px 0 4px 0', textTransform: 'uppercase' }}>{p.name}</h3>
-                <div style={{ margin: '12px 0' }}>
-                  <span style={{ fontSize: '32px', color: '#FFD700', fontWeight: 'bold' }}>{p.price}</span>
-                  <span style={{ fontFamily: 'sans-serif', color: '#666', fontSize: '12px' }}>{p.period}</span>
+          {plans.map((p, i) => {
+            const encodedMessage = encodeURIComponent(`Hi Coach Vinay, I want to join the ${p.name} (${p.price}) plan at Powerhouse Gym!`);
+            const whatsappUrl = `https://wa.me/917996287341?text=${encodedMessage}`;
+
+            return (
+              <div key={i} className="plan-card" style={{ backgroundColor: '#111', border: '1px solid #222', padding: '20px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+                <div>
+                  <span style={{ backgroundColor: 'rgba(255,215,0,0.1)', color: '#FFD700', border: '1px solid #FFD700', padding: '3px 8px', fontSize: '10px', textTransform: 'uppercase', letterSpacing: '1px' }}>{p.tag}</span>
+                  <h3 style={{ fontSize: '20px', margin: '12px 0 4px 0', textTransform: 'uppercase' }}>{p.name}</h3>
+                  <div style={{ margin: '12px 0' }}>
+                    <span style={{ fontSize: '32px', color: '#FFD700', fontWeight: 'bold' }}>{p.price}</span>
+                    <span style={{ fontFamily: 'sans-serif', color: '#666', fontSize: '12px' }}>{p.period}</span>
+                  </div>
                 </div>
+                <a 
+                  href={whatsappUrl} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  style={{ backgroundColor: '#222', color: '#FFD700', textAlign: 'center', padding: '12px', textDecoration: 'none', textTransform: 'uppercase', fontWeight: 'bold', fontSize: '13px', border: '1px solid #FFD700', display: 'block', marginTop: '16px' }}
+                >
+                  Select Plan
+                </a>
               </div>
-              <a href="https://wa.me/917996287341" target="_blank" rel="noopener noreferrer" style={{ backgroundColor: '#222', color: '#FFD700', textAlign: 'center', padding: '12px', textDecoration: 'none', textTransform: 'uppercase', fontWeight: 'bold', fontSize: '13px', border: '1px solid #FFD700', display: 'block', marginTop: '16px' }}>
-                Select Plan
-              </a>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </section>
 
