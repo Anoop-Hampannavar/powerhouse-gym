@@ -203,7 +203,7 @@ export default function Home() {
               <div style={{ fontFamily: 'sans-serif', fontSize: '14px', color: '#DDD' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid #222', paddingBottom: '10px', marginBottom: '10px' }}>
                   <span style={{ color: '#999' }}>Morning Batch:</span>
-                  <strong style={{ color: '#FFD700' }}>06:30 AM – 11:00 AM</strong>
+                  <strong style={{ color: '#FFD700' }}>09:00 AM – 11:00 AM</strong>
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                   <span style={{ color: '#999' }}>Evening Batch:</span>
